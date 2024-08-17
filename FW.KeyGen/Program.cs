@@ -18,7 +18,7 @@ namespace FW.KeyGen
             Console.WriteLine($"Description: {description}");
             Console.WriteLine();
             string jwtKey = GenerateSecureKey(32);
-            Console.WriteLine($"Your JWT Key: {jwtKey}");
+            Console.WriteLine($"Your JWT Key:   {jwtKey}");
             Console.WriteLine();
             Console.WriteLine($"Press any key to exit...");
             Console.ReadLine();
