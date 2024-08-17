@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+	  <AssemblyName>FleetWrencherKeyGen</AssemblyName>
+	  <OutputType>Exe</OutputType>
+	  <Version>1.0.0</Version>
+	  <FileVersion>1.0.0</FileVersion>
+	  <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+</Project>
