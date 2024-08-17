@@ -8,9 +8,9 @@
 	  <SelfContained>true</SelfContained>	  <!-- Make it a self-contained EXE -->
 	  <PublishSingleFile>true</PublishSingleFile>	  <!-- Bundle into a single EXE file -->
 	  <PublishTrimmed>true</PublishTrimmed>	  <!-- Trim unused assemblies to reduce size -->
-	  <Version>1.0.3</Version>	  <!-- Versioning information -->
-	  <FileVersion>1.0.3</FileVersion>
-	  <AssemblyVersion>1.0.3.0</AssemblyVersion>
+	  <Version>1.0.4</Version>	  <!-- Versioning information -->
+	  <FileVersion>1.0.4</FileVersion>
+	  <AssemblyVersion>1.0.4.0</AssemblyVersion>
 	  <Company>JT Networx</Company>
 	  <Authors>John Thomas</Authors>
 	  <Description>A tool to generate JWT keys for FleetWrencher</Description>
