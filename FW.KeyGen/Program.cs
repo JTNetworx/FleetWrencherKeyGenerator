@@ -8,11 +8,18 @@ namespace FW.KeyGen
     {
         static void Main(string[] args)
         {
-            var version = Assembly.GetExecutingAssembly().GetName().Version;
-            Console.WriteLine($"FleetWrencher Key Gen v{version}");
+            var assembly = Assembly.GetExecutingAssembly();
+            var version = assembly.GetName().Version;
+            var company = assembly.GetCustomAttribute<AssemblyCompanyAttribute>()?.Company ?? "Unknown Company";
+            var product = assembly.GetCustomAttribute<AssemblyProductAttribute>()?.Product ?? "Unknown Product";
+            var description = assembly.GetCustomAttribute<AssemblyDescriptionAttribute>()?.Description ?? "Unknown Description";
+            var copyright = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Unknown Copyright";
+            Console.WriteLine($"{product} v{version} by {company}, {copyright}");
+            Console.WriteLine($"Description: {description}");
             Console.WriteLine();
             string jwtKey = GenerateSecureKey(32);
             Console.WriteLine($"Your JWT Key: {jwtKey}");
+            Console.WriteLine();
             Console.WriteLine($"Press any key to exit...");
             Console.ReadLine();
         }
