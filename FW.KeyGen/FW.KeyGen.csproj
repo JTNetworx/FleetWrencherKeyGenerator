@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-  <PropertyGroup>
 	  <AssemblyName>FleetWrencherKeyGen</AssemblyName>
 	  <OutputType>Exe</OutputType>
-	  <Version>1.0.0</Version>
-	  <FileVersion>1.0.0</FileVersion>
-	  <AssemblyVersion>1.0.0.0</AssemblyVersion>
+	  <TargetFramework>net8.0</TargetFramework>
+	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>	  <!-- Specify the Windows runtime -->
+	  <SelfContained>true</SelfContained>	  <!-- Make it a self-contained EXE -->
+	  <PublishSingleFile>true</PublishSingleFile>	  <!-- Bundle into a single EXE file -->
+	  <PublishTrimmed>true</PublishTrimmed>	  <!-- Trim unused assemblies to reduce size -->
+	  <Version>1.0.1</Version>	  <!-- Versioning information -->
+	  <FileVersion>1.0.1</FileVersion>
+	  <AssemblyVersion>1.0.1.0</AssemblyVersion>
+	  <Authors>JT Networx</Authors>
   </PropertyGroup>
 
 </Project>

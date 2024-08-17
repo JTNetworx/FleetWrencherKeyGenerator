@@ -10,7 +10,7 @@ namespace FW.KeyGen
         {
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             Console.WriteLine($"FleetWrencher Key Gen v{version}");
-
+            Console.WriteLine();
             string jwtKey = GenerateSecureKey(32);
             Console.WriteLine($"Your JWT Key: {jwtKey}");
             Console.WriteLine($"Press any key to exit...");
