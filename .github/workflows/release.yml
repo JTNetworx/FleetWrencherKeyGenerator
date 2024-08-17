@@ -27,7 +27,7 @@ jobs:
     - name: Archive EXE
       run: |
         mkdir output
-        copy .\bin\Release\net8.0\win-x64\publish\FleetWrencherKeyGen.exe output\FleetWrencherKeyGen.exe
+        xcopy /Y .\bin\Release\net8.0\win-x64\publish\FleetWrencherKeyGen.exe .\output\FleetWrencherKeyGen.exe
 
     - name: Create GitHub Release
       id: create_release
