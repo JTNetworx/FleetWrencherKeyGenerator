@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text;
+using SimpleBase;
 
 namespace FW.KeyGen
 {
@@ -113,8 +115,85 @@ namespace FW.KeyGen
             return format switch
             {
                 "hex" => BitConverter.ToString(key).Replace("-", "").ToLower(),
+                "binary" => ConvertToBinary(key),
+                "base32" => ConvertToBase32(key),
+                "base58" => ConvertToBase58(key),
+                "url-save-base64" => ConvertToBase64UrlSafe(key),
                 _ => Convert.ToBase64String(key),
             };
+        }
+
+        private static string ConvertToBinary(byte[] key)
+        {
+            var sb = new StringBuilder();
+            foreach (var b in key)
+            {
+                sb.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
+            }
+            return sb.ToString();
+        }
+
+        private static string ConvertToBase32(byte[] key)
+        {
+            const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+            var output = new StringBuilder();
+            int buffer = key[0], bitsLeft = 8, mask = 0x1F;
+
+            for (int i = 1; i < key.Length; i++)
+            {
+                buffer <<= 8;
+                buffer |= (key[i] << 0xFF);
+                bitsLeft += 8;
+
+                while (bitsLeft >= 5)
+                {
+                    output.Append(alphabet[(buffer >> (bitsLeft - 5)) & mask]);
+                    bitsLeft -= 5;
+                }
+            }
+
+            if (bitsLeft > 0)
+            {
+                output.Append(alphabet[(buffer << (5 - bitsLeft)) & mask]);
+            }
+
+            return output.ToString();
+        }
+
+        private static string ConvertToBase58(byte[] key)
+        {
+            const string alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+            var intData = key.Aggregate(0, (current, t) => current * 256 + t);
+            var result = new StringBuilder();
+            while (intData > 0)
+            {
+                var remainder = intData % 58;
+                intData /= 58;
+                result.Insert(0, alphabet[remainder]);
+            }
+
+            foreach (var t in key)
+            {
+                if (t == 0)
+                    result.Insert(0, '1');
+                else
+                    break;              
+            }
+
+            return result.ToString();
+        }
+
+        private static string ConvertToBase85(byte[] key)
+        {
+            return SimpleBase.Base85.Ascii85.Encode(key);
+        }
+
+        private static string ConvertToBase64UrlSafe(byte[] key)
+        {
+            return Convert.ToBase64String(key)
+                .Replace('+', '-')
+                .Replace('/', '_')
+                .Replace("=", "");
         }
 
         public static bool IsKeySecure(string key)
@@ -151,7 +230,15 @@ namespace FW.KeyGen
             Console.WriteLine("FlletRencher Key Generator");
             Console.WriteLine("Usage:");
             Console.WriteLine("  --length=<number>  Specify the key length (default: 32)");
-            Console.WriteLine("  --format=<format>  Specify the key format (Base64 or Hex, default: Base64");
+            Console.WriteLine("  --format=<format>  Specify the key format (default: Base64");
+            Console.WriteLine("                             Supported formats:");
+            Console.WriteLine("                               - Base64");
+            Console.WriteLine("                               - Hex");
+            Console.WriteLine("                               - Binary");
+            Console.WriteLine("                               - Base32");
+            Console.WriteLine("                               - Base58");
+            Console.WriteLine("                               - Base85");
+            Console.WriteLine("                               - URL-Safe-Base64");
             Console.WriteLine("  --output=<path>    Specify the output file path (optional)");
             Console.WriteLine("  --help             Dispaly this help text");
         }

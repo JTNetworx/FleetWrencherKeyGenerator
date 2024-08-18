@@ -5,9 +5,18 @@
 
 ### Command Line Arguments
 - _--length=_ The Key Length to generate (default: 32)
-- _--format=_ The Format to geneate (default: Base64 or Hex)
+- _--format=_ The Format to geneate (default: Base64)
 - _--output=_ The file output path (optional)
 - _--help=_   The display of the command line arguments
+
+### Supported Formats For Command Line Arguments
+- Base64
+- Hex
+- Binary
+- Base32
+- Base58
+- Base85
+- URL-Safe-Base64
 
 ### Security Scoring
 Score Name | Value
