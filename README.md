@@ -1,6 +1,6 @@
 # FleetWrencher Key Gen
 ## Developer: JT Networx
-
+[Releases](https://github.com/JTNetworx/FleetWrencherKeyGenerator/releases "FleetWrecherKeyGen Releases")
 ## Interactive Base64 or Hex Key Generator With Security Scoring and Optional File Output
 
 ### Command Line Arguments
