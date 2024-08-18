@@ -1,7 +1,7 @@
 # FleetWrencher Key Gen
 ## Developer: JT Networx
 [Releases](https://github.com/JTNetworx/FleetWrencherKeyGenerator/releases "FleetWrecherKeyGen Releases")
-## Interactive Key Formated Generator With Security Scoring and Optional File Output
+## Interactive Key Formatted Generator With Security Scoring and Optional File Output
 
 ### Command Line Arguments
 - _--length=_ The Key Length to generate (default: 32)
