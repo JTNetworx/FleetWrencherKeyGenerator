@@ -38,13 +38,13 @@ namespace FW.KeyGen
             // Parse command-line args
             if (args.Length == 0)
             {
-                Console.WriteLine("Enter key length (default 32): ");
+                Console.WriteLine("Enter key length (default:32): ");
                 if (int.TryParse(Console.ReadLine(), out int result))
                 {
                     length = result;
                 }
 
-                Console.Write("Enter format (Base64/Hex): ");
+                Console.Write("Enter format (default:Base64 |Hex|Binary|Base32|Base58|Base85|Url-Safe-Base64): ");
                 var inputFormat = Console.ReadLine()?.ToLower();
                 if (!string.IsNullOrEmpty(inputFormat))
                 {
@@ -118,7 +118,8 @@ namespace FW.KeyGen
                 "binary" => ConvertToBinary(key),
                 "base32" => ConvertToBase32(key),
                 "base58" => ConvertToBase58(key),
-                "url-save-base64" => ConvertToBase64UrlSafe(key),
+                "base85" => ConvertToBase85(key),
+                "url-safe-base64" => ConvertToBase64UrlSafe(key),
                 _ => Convert.ToBase64String(key),
             };
         }
