@@ -33,3 +33,6 @@ Score Name | Value
 - _Key Has LowerCase_               := +1
 - _Key HasDigit_                    := +1
 - _Key Has One Of ("!@#$%^&*()")_   = +1
+![image1](https://github.com/user-attachments/assets/2cc811fd-f062-41ae-9f92-61b32689a5f8)
+![image2](https://github.com/user-attachments/assets/b0e297e5-013b-4548-b165-42f1b2fbbbf6)
+![image3](https://github.com/user-attachments/assets/a0412598-7bc7-4cdf-95ff-df7925bde33a)
